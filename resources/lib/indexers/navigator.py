@@ -117,7 +117,7 @@ class navigator:
             pass
 
 
-    def endDirectory(self, cacheToDisc=True):
+    def endDirectory(self, cacheToDisc=True) -> None:
         utilities.content(syshandle, 'addons')
         utilities.directory(syshandle, cacheToDisc)
 
