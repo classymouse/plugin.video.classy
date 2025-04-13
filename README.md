@@ -1,2 +1,2 @@
 # plugin.video.classy
- Classy Addon
+ This is the readme placeholder for the Classy Addon
