@@ -38,10 +38,10 @@ class navigator:
         pass
 
     def root(self):
-        self.addDirectoryItem('Developers', 'navDevs', 'developers', 'developers.png')
+        self.addDirectoryItem('Developers', 'navDevs', 'devs.png', 'devs.png')
         self.addDirectoryItem('Movies', 'navMovies', 'icon.png', 'icon.png')
         self.addDirectoryItem('TVShows', 'navTVShows', 'icon.png', 'icon.png')
-        self.addDirectoryItem('Settings', 'opensettings&query=0.0', 'settings', 'settings.png')
+        self.addDirectoryItem('Settings', 'opensettings&query=0.0', 'settings.png', 'settings.png')
 
 
         self.endDirectory()

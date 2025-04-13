@@ -1,7 +1,8 @@
 # Byte-compiled / optimized / DLL files
 __pycache__
 *.py[cod]
-*.pyc
+.pyc
+.bak
 *$py.class
 
 # C extensions
@@ -155,7 +156,7 @@ cython_debug/
 
 # VS Code
 #  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore that can
-,git
+.git
 .gitignore
 .gitattributes
 

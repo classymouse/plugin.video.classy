@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.classy" name="[COLOR teal]Classy Video Addon[/COLOR]" version="1.0.0" provider-name="Classy">
+<addon id="plugin.video.classy" name="[COLOR teal]Classy[/COLOR]" version="1.0.0" provider-name="Classy">
     <!-- Dependencies -->
     <requires>
         <import addon="xbmc.python" version="3.0.0"/>
@@ -7,9 +7,9 @@
     <extension library="default.py" point="xbmc.python.pluginsource">
         <provides>video</provides>
     </extension>
-    <!-- <extension library="service.py" point="xbmc.service" /> -->
+    <extension library="service.py" point="xbmc.service" />
     <extension point="xbmc.addon.metadata">
-        <summary lang="en">Classy Video Addon</summary>
+        <summary lang="en">Classy Video addon, warning, in BETA!</summary>
         <description lang="en">A classy video add-on for Kodi</description>
         <description lang="en">Offers a basic structure for video playback, with hooks for settings and future expansion.</description>
         <platform>all</platform>

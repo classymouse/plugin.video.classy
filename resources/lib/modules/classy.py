@@ -375,8 +375,8 @@ class Classy:
             return os.path.join(self.path, 'resources', 'lib', 'artwork', str(self.theme))
 
     def appearance(self):
-        self.log(f"[CM Debug @ 367 in classy.py] appearance = {self.get_setting('theme')}")
-        return (self.get_setting('theme').lower())
+        if int(self.get_setting('theme')) == 0:
+            return 'classy'
 
 
     def artwork(self) -> None:
