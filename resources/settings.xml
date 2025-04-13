@@ -1,0 +1,5 @@
+<settings>
+    <category label="General Settings">
+        <setting type="bool" id="enabled" label="Enable feature" default="true"/>
+    </category>
+</settings>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="plugin.video.classy" name="[COLOR teal]Classy Video Addon[/COLOR]" version="1.0.0" provider-name="Classy">
+    <!-- Dependencies -->
+    <requires>
+        <import addon="xbmc.python" version="3.0.0"/>
+    </requires>
+    <extension library="default.py" point="xbmc.python.pluginsource">
+        <provides>video</provides>
+    </extension>
+    <!-- <extension library="service.py" point="xbmc.service" /> -->
+    <extension point="xbmc.addon.metadata">
+        <summary lang="en">Classy Video Addon</summary>
+        <description lang="en">A classy video add-on for Kodi</description>
+        <description lang="en">Offers a basic structure for video playback, with hooks for settings and future expansion.</description>
+        <platform>all</platform>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+        <disclaimer lang="en">The author of this addon does not host any of the content which is found and has no affiliation with any of the content providers. This addon simply searches websites for content. Use it at your own risk!</disclaimer>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.jpg</fanart>
+            <!-- <screenshot>resources/art/ss/1.png</screenshot> -->
+            <!-- <screenshot>resources/art/ss/2.png</screenshot> -->
+            <!-- <screenshot>resources/art/ss/3.png</screenshot> -->
+        </assets>
+    </extension>
+</addon>
