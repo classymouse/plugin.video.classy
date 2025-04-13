@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-__pycache__/
+__pycache__
 *.py[cod]
 *$py.class
 
@@ -151,6 +151,13 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# VS Code
+#  Visual Studio Code specific template is maintained in a separate VisualStudioCode.gitignore that can
+,git
+.gitignore
+.gitattributes
+
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
