@@ -17,15 +17,13 @@ import sys
 from .classy import c
 
 from ..indexers.navigator import n
-from . import utilities
+from . import kodiutils
 
 
 
 
 def router(params):
-    c.log('\n------------------------------------------------------------------------\n')
     c.log(f'Router called with params: {params}')
-    c.log('\n------------------------------------------------------------------------\n')
 
 
 
@@ -49,6 +47,6 @@ def router(params):
     elif action == 'opensettings':
         c.log('Opening settings...')
         query = params.get('query', '0.0')
-        utilities.open_settings(query=query)
+        kodiutils.open_settings(query=query)
     else:
         c.log(f'Unknown action: {action}')

@@ -371,8 +371,7 @@ class Classy:
         return 'DefaultVideo.png'
     def get_art_path(self) -> str:
         if self.theme.lower() in ['classy']:
-            self.log(f"[CM Debug @ 363 in classy.py]path = {os.path.join(self.path, 'resources', 'lib', 'artwork', str(self.theme))}")
-            return os.path.join(self.path, 'resources', 'lib', 'artwork', str(self.theme))
+            return os.path.join(self.path, 'resources', 'lib/artwork', str(self.theme))
 
     def appearance(self):
         if int(self.get_setting('theme')) == 0:

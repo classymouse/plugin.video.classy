@@ -17,12 +17,15 @@ import sys
 import os
 
 import xbmc
+import xbmcplugin
+import xbmcgui
 
 from ..modules.classy import c
-from ..modules import utilities
+from ..modules import kodiutils
 
 
 sysaddon = sys.argv[0]
+addon_handle = int(sys.argv[1])
 syshandle = int(sys.argv[1])
 
 
@@ -48,14 +51,14 @@ class navigator:
 
 
     def navMovies(self):
-        self.addDirectoryItem('Trakt', 'traktmovies', 'icon.png', 'icon.png')
+        self.addDirectoryItem('Trakt', 'traktmovies', 'trakt.png', 'trakt.png')
 
 
         self.endDirectory()
 
 
     def navTVShows(self):
-        self.addDirectoryItem('Trakt', 'traktshows', 'icon.png', 'icon.png')
+        self.addDirectoryItem('Trakt', 'traktshows', 'trakt.png', 'trakt.png')
 
 
         self.endDirectory()
@@ -69,7 +72,38 @@ class navigator:
 
         self.endDirectory()
 
-    def addDirectoryItem(self, name, query, thumb, icon, fanart = c.fanart, isFolder=True, isAction=True, infolabels=None, context=None):
+    def addDirectoryItem1(self, name, query, thumb, icon, context=None, queue=False, isAction=True, isFolder=True):
+            url = build_url({'mode': 'folder', 'foldername': 'Folder Four'})
+            li = xbmcgui.ListItem('Folder Four', iconImage='DefaultFolder.png')
+            xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li, isFolder=True)
+
+
+
+
+
+    def addDirectoryItem(self, name, query, thumb, icon, context=None, queue=False, isAction=True, isFolder=True):
+
+        if isinstance(name, int):
+            name = c.lang(name)
+
+        url = f'{sysaddon}?action={query}' if isAction is True else query
+        thumb = os.path.join(c.art_path, thumb) if c.art_path is not None else icon
+
+
+        #li = kodiutils.item(label=name)
+        #li = xbmcgui.ListItem('Folder Four', iconImage=thumb)
+        li = xbmcgui.ListItem(label=name, offscreen=True)
+        #li.addContextMenuItems(cm)
+        li.setArt({'icon': icon, 'thumb': thumb})
+
+        if c.fanart is not None:
+            li.setProperty('fanart', c.fanart)
+
+        #kodiutils.addItem(handle=syshandle, url=url, listitem=li, isFolder=isFolder)
+        xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li, isFolder=True)
+
+
+    def addDirectoryItem2(self, name, query, thumb, icon, fanart = c.fanart, isFolder=True, isAction=True, infolabels=None, context=None):
         try:
             if isinstance(name, int):
                 name = c.lang(name)
@@ -77,7 +111,7 @@ class navigator:
 
             url = f'{sysaddon}?action={query}' if isAction is True else query
 
-            thumb = os.path.join(c.art_path, thumb) if c.art_path is not None else icon
+            thumb = os.path.join(c.get_art_path(), thumb) if c.get_art_path() is not None else icon
 
             if infolabels is None:
                 infolabels = {}
@@ -92,7 +126,7 @@ class navigator:
 
                 #cm.append((c.lang(context[0]),f'RunPlugin({sysaddon}?action={context[1]})',))
 
-            item = utilities.item(label=name, offscreen=True)
+            item = kodiutils.item(label=name, offscreen=True)
             #item.addContextMenuItems(cm)
 
             item.setArt({'icon': thumb, 'thumb': thumb})
@@ -108,7 +142,7 @@ class navigator:
             elif c.addon_fanart is not None:
                 item.setArt({'thumb': c.addon_fanart})
 
-            utilities.addItem(handle=syshandle, url=url, listitem=item, isFolder=isFolder)
+            kodiutils.addItem(handle=syshandle, url=url, listitem=item, isFolder=isFolder)
         except Exception as e:
             import traceback
             failure = traceback.format_exc()
@@ -118,8 +152,20 @@ class navigator:
 
 
     def endDirectory(self, cacheToDisc=True) -> None:
-        utilities.content(syshandle, 'addons')
-        utilities.directory(syshandle, cacheToDisc)
+        try:
+            #kodiutils.content(syshandle, 'addons')
+            #kodiutils.directory(syshandle, cacheToDisc)
+            #xbmcplugin.endOfDirectory(syshandle,cacheToDisc)#succeeded=True,updateListing=True,
+            #XBMCAddon::xbmcplugin::endOfDirectory(syshandle,bool	succeeded,bool	updateListing,bool	cacheToDisc )
+            xbmcplugin.endOfDirectory(addon_handle)
+
+        except Exception as e:
+            import traceback
+            failure = traceback.format_exc()
+            c.log(f'[CM Debug @ 124 in navigator.py]Traceback:: {failure}')
+            c.log(f'[CM Debug @ 124 in navigator.py]Exception raised. Error = {e}')
+            pass
+
 
 
 n = navigator()
