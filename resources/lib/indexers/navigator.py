@@ -72,6 +72,11 @@ class navigator:
 
         self.endDirectory()
 
+    def traktMovies(self):
+        self.addDirectoryItem('Trakt Movies', '', 'icon.png', 'icon.png', isFolder=False)
+
+        self.endDirectory()
+
     def addDirectoryItem1(self, name, query, thumb, icon, context=None, queue=False, isAction=True, isFolder=True):
             url = build_url({'mode': 'folder', 'foldername': 'Folder Four'})
             li = xbmcgui.ListItem('Folder Four', iconImage='DefaultFolder.png')
