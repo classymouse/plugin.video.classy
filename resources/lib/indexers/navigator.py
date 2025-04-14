@@ -69,6 +69,11 @@ class navigator:
 
         self.endDirectory()
 
+    def traktMovies(self):
+        self.addDirectoryItem('Trakt Movies', '', 'icon.png', 'icon.png', isFolder=False)
+
+        self.endDirectory()
+
     def addDirectoryItem(self, name, query, thumb, icon, fanart = c.fanart, isFolder=True, isAction=True, infolabels=None, context=None):
         try:
             if isinstance(name, int):
