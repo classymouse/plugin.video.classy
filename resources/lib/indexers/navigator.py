@@ -42,23 +42,23 @@ class navigator:
 
     def root(self):
         self.addDirectoryItem(32002, 'navDevs', 'devs.png', 'devs.png')
-        self.addDirectoryItem('Movies', 'navMovies', 'icon.png', 'icon.png')
-        self.addDirectoryItem('TVShows', 'navTVShows', 'icon.png', 'icon.png')
-        self.addDirectoryItem('Settings', 'opensettings&query=0.0', 'settings.png', 'settings.png')
+        self.addDirectoryItem(32006, 'navMovies', 'icon.png', 'icon.png')
+        self.addDirectoryItem(32007, 'navTVShows', 'icon.png', 'icon.png')
+        self.addDirectoryItem(32008, 'opensettings&query=0.0', 'settings.png', 'settings.png')
 
 
         self.endDirectory()
 
 
     def navMovies(self):
-        self.addDirectoryItem('Trakt', 'traktmovies', 'trakt.png', 'trakt.png')
+        self.addDirectoryItem(32009, 'traktmovies', 'trakt.png', 'trakt.png')
 
 
         self.endDirectory()
 
 
     def navTVShows(self):
-        self.addDirectoryItem('Trakt', 'traktshows', 'trakt.png', 'trakt.png')
+        self.addDirectoryItem(32009, 'traktshows', 'trakt.png', 'trakt.png')
 
 
         self.endDirectory()
@@ -72,12 +72,12 @@ class navigator:
         self.endDirectory()
 
     def traktMovies(self):
-        self.addDirectoryItem('Trakt Movies', '', 'icon.png', 'icon.png', isFolder=False)
+        self.addDirectoryItem(32010, '', 'icon.png', 'icon.png', isFolder=False)
 
         self.endDirectory()
 
     def traktTVShows(self):
-        self.addDirectoryItem('Trakt Movies', '', 'icon.png', 'icon.png', isFolder=False)
+        self.addDirectoryItem(32011, '', 'icon.png', 'icon.png', isFolder=False)
 
         self.endDirectory()
 
@@ -158,7 +158,8 @@ class navigator:
             #xbmcplugin.endOfDirectory(syshandle,cacheToDisc)#succeeded=True,updateListing=True,
             #XBMCAddon::xbmcplugin::endOfDirectory(syshandle,bool	succeeded,bool	updateListing,bool	cacheToDisc )
             #xbmcplugin.setContent(addon_handle, 'videos')
-            xbmcplugin.endOfDirectory(addon_handle)
+            #xbmcplugin.endOfDirectory(addon_handle)
+            kodiutils.directory(addon_handle)
 
         except Exception as e:
             import traceback

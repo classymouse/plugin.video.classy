@@ -52,5 +52,9 @@ msgid "Trakt"
 msgstr ""
 
 msgctxt "#32010"
-msgid "Debug"
+msgid "Trakt Movies"
+msgstr ""
+
+msgctxt "#32011"
+msgid "Trakt TVShows"
 msgstr ""
