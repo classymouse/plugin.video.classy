@@ -35,8 +35,9 @@ setproperty = xbmcplugin.setProperty
 
 def open_settings(query='', _id=c.addon_id):
     try:
-        idle()
-        execute(f'Addon.OpenSettings({_id})')
+        idle
+        execute('Addon.OpenSettings(%s)' % _id)
+
         if not query:
             raise Exception()
         e, f = query.split('.')

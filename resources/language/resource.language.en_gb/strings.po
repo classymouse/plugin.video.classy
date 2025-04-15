@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 3.2.2\n"
+"X-Generator: VSCode\n"
 
 msgctxt "#32000"
 msgid "Classy"
@@ -32,5 +32,25 @@ msgid "Enable Debug"
 msgstr ""
 
 msgctxt "#32005"
+msgid "Debug"
+msgstr ""
+
+msgctxt "#32006"
+msgid "Movies"
+msgstr ""
+
+msgctxt "#32007"
+msgid "TVShow"
+msgstr ""
+
+msgctxt "#32008"
+msgid "Settings"
+msgstr ""
+
+msgctxt "#32009"
+msgid "Trakt"
+msgstr ""
+
+msgctxt "#32010"
 msgid "Debug"
 msgstr ""

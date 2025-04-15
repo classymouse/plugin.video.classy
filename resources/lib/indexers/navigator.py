@@ -41,7 +41,7 @@ class navigator:
         pass
 
     def root(self):
-        self.addDirectoryItem('Developers', 'navDevs', 'devs.png', 'devs.png')
+        self.addDirectoryItem(32002, 'navDevs', 'devs.png', 'devs.png')
         self.addDirectoryItem('Movies', 'navMovies', 'icon.png', 'icon.png')
         self.addDirectoryItem('TVShows', 'navTVShows', 'icon.png', 'icon.png')
         self.addDirectoryItem('Settings', 'opensettings&query=0.0', 'settings.png', 'settings.png')
@@ -64,11 +64,10 @@ class navigator:
         self.endDirectory()
 
     def navDevs(self):
-        self.addDirectoryItem('Classy Mouse', 'classymouse', 'classymouse', 'classymouse.png')
-        self.addDirectoryItem('Classy Add-on', 'classyaddon', 'classyaddon', 'classyaddon.png')
-        self.addDirectoryItem('Classy API', 'classyapi', 'classyapi', 'classyapi.png')
-        self.addDirectoryItem('Classy API (Legacy)', 'classyapi_legacy', 'classyapi_legacy', 'classyapi_legacy.png')
-
+        self.addDirectoryItem('Test 1', 'test1', 'classy.png', 'classy.png')
+        self.addDirectoryItem('Test 2', 'test2', 'classy.png', 'classy.png')
+        self.addDirectoryItem('Test 3', 'test3', 'classy.png', 'classy.png')
+        self.addDirectoryItem('Test 4', 'test4', 'classy.png', 'classy.png')
 
         self.endDirectory()
 
@@ -77,14 +76,10 @@ class navigator:
 
         self.endDirectory()
 
-    def addDirectoryItem1(self, name, query, thumb, icon, context=None, queue=False, isAction=True, isFolder=True):
-            url = build_url({'mode': 'folder', 'foldername': 'Folder Four'})
-            li = xbmcgui.ListItem('Folder Four', iconImage='DefaultFolder.png')
-            xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li, isFolder=True)
+    def traktTVShows(self):
+        self.addDirectoryItem('Trakt Movies', '', 'icon.png', 'icon.png', isFolder=False)
 
-
-
-
+        self.endDirectory()
 
     def addDirectoryItem(self, name, query, thumb, icon, context=None, queue=False, isAction=True, isFolder=True):
 
@@ -162,6 +157,7 @@ class navigator:
             #kodiutils.directory(syshandle, cacheToDisc)
             #xbmcplugin.endOfDirectory(syshandle,cacheToDisc)#succeeded=True,updateListing=True,
             #XBMCAddon::xbmcplugin::endOfDirectory(syshandle,bool	succeeded,bool	updateListing,bool	cacheToDisc )
+            #xbmcplugin.setContent(addon_handle, 'videos')
             xbmcplugin.endOfDirectory(addon_handle)
 
         except Exception as e:

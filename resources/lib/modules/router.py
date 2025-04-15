@@ -27,9 +27,10 @@ def router(params):
 
 
 
-    action = params.get('action')
+    action = params.get('action', '')
+    query = params.get('query', '')
 
-    if action is None:
+    if not action:
         n.root()
     elif action == 'navMovies':
         n.navMovies()
@@ -37,16 +38,34 @@ def router(params):
         n.navTVShows()
     elif action == 'navDevs':
         n.navDevs()
-
     elif action == 'traktmovies':
-        c.log('Opening Trakt Movies...')
-        #n.traktMovies()
+        n.traktMovies()
     elif action == 'traktshows':
-        c.log('Opening Trakt TV Shows...')
-        #n.traktTVShows()
+        n.traktTVShows()
     elif action == 'opensettings':
-        c.log('Opening settings...')
-        query = params.get('query', '0.0')
+
         kodiutils.open_settings(query=query)
+
+
+    ######### Dev actions #########
+
+    elif action == 'test1':
+        c.log('Test action triggered')
+        kodiutils.notification('Test', 'Test action executed')
+        # Add your test action code here
+    elif action == 'test2':
+        c.log('Test2 action triggered')
+        kodiutils.notification('Test2', 'Test2 action executed')
+        # Add your test2 action code here
+    elif action == 'test3':
+        c.log('Test3 action triggered')
+        kodiutils.notification('Test3', 'Test3 action executed')
+        # Add your test3 action code here
+    elif action == 'test4':
+        c.log('Test4 action triggered')
+        kodiutils.notification('Test4', 'Test4 action executed')
+
+    ######## End Dev actions #########
+
     else:
         c.log(f'Unknown action: {action}')
