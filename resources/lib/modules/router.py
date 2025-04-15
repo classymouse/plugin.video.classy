@@ -17,7 +17,7 @@ import sys
 from .classy import c
 
 from ..indexers.navigator import n
-from . import kodiutils
+from . import kodi
 
 
 
@@ -44,26 +44,26 @@ def router(params):
         n.traktTVShows()
     elif action == 'opensettings':
 
-        kodiutils.open_settings(query=query)
+        kodi.open_settings(query=query)
 
 
     ######### Dev actions #########
 
     elif action == 'test1':
         c.log('Test action triggered')
-        kodiutils.notification('Test', 'Test action executed')
+        kodi.notification('Test', 'Test action executed')
         # Add your test action code here
     elif action == 'test2':
         c.log('Test2 action triggered')
-        kodiutils.notification('Test2', 'Test2 action executed')
+        kodi.notification('Test2', 'Test2 action executed')
         # Add your test2 action code here
     elif action == 'test3':
         c.log('Test3 action triggered')
-        kodiutils.notification('Test3', 'Test3 action executed')
+        kodi.notification('Test3', 'Test3 action executed')
         # Add your test3 action code here
     elif action == 'test4':
         c.log('Test4 action triggered')
-        kodiutils.notification('Test4', 'Test4 action executed')
+        kodi.notification('Test4', 'Test4 action executed')
 
     ######## End Dev actions #########
 

@@ -4,7 +4,7 @@
 ********************************************************cm*
 * Classy Add-on
 *
-* @file kodiutils.py
+* @file kodi.py
 * @package plugin.video.classy
 *
 * @copyright (c) 2025, Classy Mouse

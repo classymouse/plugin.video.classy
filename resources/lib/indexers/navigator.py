@@ -21,7 +21,7 @@ import xbmcplugin
 import xbmcgui
 
 from ..modules.classy import c
-from ..modules import kodiutils
+from ..modules import kodi
 
 
 sysaddon = sys.argv[0]
@@ -44,7 +44,7 @@ class navigator:
         self.addDirectoryItem(32002, 'navDevs', 'devs.png', 'devs.png')
         self.addDirectoryItem(32006, 'navMovies', 'icon.png', 'icon.png')
         self.addDirectoryItem(32007, 'navTVShows', 'icon.png', 'icon.png')
-        self.addDirectoryItem(32008, 'opensettings&query=0.0', 'settings.png', 'settings.png')
+        self.addDirectoryItem(32008, 'opensettings&query=0.0', 'settings.png', 'settings.png', isFolder=False)
 
 
         self.endDirectory()
@@ -64,10 +64,10 @@ class navigator:
         self.endDirectory()
 
     def navDevs(self):
-        self.addDirectoryItem('Test 1', 'test1', 'classy.png', 'classy.png')
-        self.addDirectoryItem('Test 2', 'test2', 'classy.png', 'classy.png')
-        self.addDirectoryItem('Test 3', 'test3', 'classy.png', 'classy.png')
-        self.addDirectoryItem('Test 4', 'test4', 'classy.png', 'classy.png')
+        self.addDirectoryItem('Test 1', 'test1', 'classy.png', 'classy.png', isFolder=False)
+        self.addDirectoryItem('Test 2', 'test2', 'classy.png', 'classy.png', isFolder=False)
+        self.addDirectoryItem('Test 3', 'test3', 'classy.png', 'classy.png', isFolder=False)
+        self.addDirectoryItem('Test 4', 'test4', 'classy.png', 'classy.png', isFolder=False)
 
         self.endDirectory()
 
@@ -89,9 +89,6 @@ class navigator:
         url = f'{sysaddon}?action={query}' if isAction is True else query
         thumb = os.path.join(c.art_path, thumb) if c.art_path is not None else icon
 
-
-        #li = kodiutils.item(label=name)
-        #li = xbmcgui.ListItem('Folder Four', iconImage=thumb)
         li = xbmcgui.ListItem(label=name, offscreen=True)
         #li.addContextMenuItems(cm)
         li.setArt({'icon': icon, 'thumb': thumb})
@@ -99,8 +96,8 @@ class navigator:
         if c.fanart is not None:
             li.setProperty('fanart', c.fanart)
 
-        #kodiutils.addItem(handle=syshandle, url=url, listitem=li, isFolder=isFolder)
-        xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li, isFolder=True)
+        kodi.addItem(handle=addon_handle, url=url, listitem=li, isFolder=isFolder)
+        #xbmcplugin.addDirectoryItem(handle=addon_handle, url=url, listitem=li, isFolder=True)
 
 
     def addDirectoryItem2(self, name, query, thumb, icon, fanart = c.fanart, isFolder=True, isAction=True, infolabels=None, context=None):
@@ -126,7 +123,7 @@ class navigator:
 
                 #cm.append((c.lang(context[0]),f'RunPlugin({sysaddon}?action={context[1]})',))
 
-            item = kodiutils.item(label=name, offscreen=True)
+            item = kodi.item(label=name, offscreen=True)
             #item.addContextMenuItems(cm)
 
             item.setArt({'icon': thumb, 'thumb': thumb})
@@ -142,7 +139,7 @@ class navigator:
             elif c.addon_fanart is not None:
                 item.setArt({'thumb': c.addon_fanart})
 
-            kodiutils.addItem(handle=syshandle, url=url, listitem=item, isFolder=isFolder)
+            kodi.addItem(handle=syshandle, url=url, listitem=item, isFolder=isFolder)
         except Exception as e:
             import traceback
             failure = traceback.format_exc()
@@ -153,13 +150,13 @@ class navigator:
 
     def endDirectory(self, cacheToDisc=True) -> None:
         try:
-            #kodiutils.content(syshandle, 'addons')
-            #kodiutils.directory(syshandle, cacheToDisc)
+            kodi.content(addon_handle, 'video')
+            kodi.directory(syshandle, cacheToDisc)
             #xbmcplugin.endOfDirectory(syshandle,cacheToDisc)#succeeded=True,updateListing=True,
             #XBMCAddon::xbmcplugin::endOfDirectory(syshandle,bool	succeeded,bool	updateListing,bool	cacheToDisc )
             #xbmcplugin.setContent(addon_handle, 'videos')
             #xbmcplugin.endOfDirectory(addon_handle)
-            kodiutils.directory(addon_handle)
+            #kodi.directory(addon_handle)
 
         except Exception as e:
             import traceback
