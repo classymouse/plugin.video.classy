@@ -64,7 +64,7 @@ class navigator:
         self.endDirectory()
 
     def navDevs(self):
-        self.addDirectoryItem('Test 1', 'test1', 'classy.png', 'classy.png', isFolder=False)
+        self.addDirectoryItem('Test Threads', 'test1', 'classy.png', 'classy.png', isFolder=False)
         self.addDirectoryItem('Test 2', 'test2', 'classy.png', 'classy.png', isFolder=False)
         self.addDirectoryItem('Test 3', 'test3', 'classy.png', 'classy.png', isFolder=False)
         self.addDirectoryItem('Test 4', 'test4', 'classy.png', 'classy.png', isFolder=False)

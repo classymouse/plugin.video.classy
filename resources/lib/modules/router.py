@@ -52,6 +52,8 @@ def router(params):
     elif action == 'test1':
         c.log('Test action triggered')
         kodi.notification('Test', 'Test action executed')
+        from . import thread_test
+        thread_test.get_max_threads(100)
         # Add your test action code here
     elif action == 'test2':
         c.log('Test2 action triggered')

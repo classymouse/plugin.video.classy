@@ -2,6 +2,7 @@
 <settings>
     <category label="32001">
         <setting id="theme" label="32003" type="enum" default="32000" lvalues="32000" />
+        <setting id="max_threads" type="slider" label="Max. Threads" enable="true" default="25" range="5,50" option="int" />
     </category>
     <category label="32005">
         <setting id="addon_debug" label="32004" type="bool" default="false" />
